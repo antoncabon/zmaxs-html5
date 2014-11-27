@@ -1,0 +1,503 @@
+<style>
+body, ul, li {
+/* ubah nilai font size untuk merubah ukuran huruf di dalam menu */
+    font-size:14px;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:21px;
+    text-align:left;
+}
+
+/* Perintah Untuk Mencegah Drop Down Menu Tertindih Konten */
+#iefix {
+position:relative;
+z-index:1000;
+}
+
+#menu {
+    list-style:none;
+/* Ubah nilai width sesuaikan dengan lebar kolom yang anda gunakan */
+    width:100%;
+    margin:0px;
+                     height:43px;
+    /* mengatur margin kiri agar tepat di batas kiri */
+                     margin-left:-15px;
+    /* ubah nilai radius untuk membuat sudut bar yang tumpul */
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    background: #000;
+/* ubah nilai kode hex warna untuk mengubah gradiasi warna bar */
+    background: -moz-linear-gradient(top, #080501, #F5A74F);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#080501), to(#F5A74F));
+   
+/* ubah warna border dari bar */
+    border: 1px solid #002232;
+
+    -moz-box-shadow:inset 0px 0px 1px #edf9ff;
+    -webkit-box-shadow:inset 0px 0px 1px #edf9ff;
+    box-shadow:inset 0px 0px 1px #edf9ff;
+}
+
+#menu li {
+    float:left;
+    text-align:center;
+    position:relative;
+    padding: 4px 10px 4px 10px;
+    margin-right:30px;
+    margin-top:7px;
+    border:none;
+}
+
+#menu li:hover {
+    border: 1px solid #777777;
+    padding: 4px 9px 4px 9px;
+   
+    /* ubah nilai hex untuk mengubah warna gradiasi pada box nama drop down menu */
+    background: #040422;
+    background: -moz-linear-gradient(top, #040422, #2D2C3A);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#040422), to(#2D2C3A));
+   
+    /* Ubah nilai radius untuk mengatur ketumpulan sudut kotak nama menu drop down */
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#menu li a {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color: #ffffff;
+    display:block;
+    outline:0;
+    text-decoration:none;
+    text-shadow: 1px 1px 1px #000;
+}
+
+#menu li:hover a {
+    color:#161616;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+#menu li .drop {
+    padding-right:21px;
+    background:url("img/drop.png") no-repeat right 8px;
+}
+#menu li:hover .drop {
+    background:url("img/drop.png") no-repeat right 7px;
+}
+
+
+.dropdown_1column,
+.dropdown_2columns,
+.dropdown_3columns,
+.dropdown_4columns,
+.dropdown_5columns {
+    margin:4px auto;
+    float:left;
+    position:absolute;
+    left:-999em;
+    text-align:left;
+    padding:10px 5px 10px 5px;
+    border:1px solid #777777;
+    border-top:none;
+   
+    /* ubah nilai hex untuk mengubah nilai gradiasi */
+    background:#F4F4F4;
+    background: -moz-linear-gradient(top, #EEEEEE, #BBBBBB);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EEEEEE), to(#BBBBBB));
+
+    /* atur ketumpulan sudut kotak isi item drop down */
+    -moz-border-radius: 0px 5px 5px 5px;
+    -webkit-border-radius: 0px 5px 5px 5px;
+    border-radius: 0px 5px 5px 5px;
+}
+/* atur lebar dari kotak item*/
+.dropdown_1column {width: 140px;}
+.dropdown_2columns {width: 280px;}
+.dropdown_3columns {width: 420px;}
+.dropdown_4columns {width: 560px;}
+.dropdown_5columns {width: 700px;}
+
+#menu li:hover .dropdown_1column,
+#menu li:hover .dropdown_2columns,
+#menu li:hover .dropdown_3columns,
+#menu li:hover .dropdown_4columns,
+#menu li:hover .dropdown_5columns {
+    left:-1px;
+    top:auto;
+}
+
+/* Pengaturan kolom */
+.col_1,
+.col_2,
+.col_3,
+.col_4,
+.col_5 {
+    display:inline;
+    float: left;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/* atur lebar dari kolom yang dimasukkan dalam kotak item */
+.col_1 {width:130px;}
+.col_2 {width:270px;}
+.col_3 {width:410px;}
+.col_4 {width:550px;}
+.col_5 {width:690px;}
+
+/* Pengaturan Menu Sisi Kanan */
+
+#menu .menu_right {
+    float:right;
+    margin-right:0px;
+}
+#menu li .align_right {
+    /* Rounded Corners */
+    -moz-border-radius: 5px 0px 5px 5px;
+    -webkit-border-radius: 5px 0px 5px 5px;
+    border-radius: 5px 0px 5px 5px;
+}
+#menu li:hover .align_right {
+    left:auto;
+    right:-1px;
+    top:auto;
+}
+
+/* Membuat Pengaturan isi dari konten drop down menu */
+
+#menu p, #menu h2, #menu h3, #menu ul li {
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:21px;
+    font-size:12px;
+    text-align:left;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+#menu h4 {
+    font-size:20px;
+    font-family: Impact;
+    color: #E36A24;
+    margin:7px 0 14px 0;
+    padding-bottom:7px;
+    border-bottom:1px solid #888888;
+}
+#menu p {
+    line-height:18px;
+    margin:0 0 10px 0;
+    font-size:11px;
+}
+
+#menu li:hover div a {
+    font-size:12px;
+    color:#015b86;
+}
+#menu li:hover div a:hover {
+    color:#029feb;
+}
+.strong {
+    font-weight:bold;
+}
+.italic {
+    font-style:italic;
+}
+.imgshadow {
+    background:#000000;
+    padding:4px;
+    border:1px solid #777777;
+    margin-top:5px;
+    -moz-box-shadow:0px 0px 5px #666666;
+    -webkit-box-shadow:0px 0px 5px #666666;
+    box-shadow:0px 0px 5px #666666;
+}
+.img_left { /* Image sticks to the left */
+    width:auto;
+    float:left;
+    margin:5px 15px 5px 5px;
+}
+#menu li .black_box {
+    background-color:#333333;
+    color: #eeeeee;
+    text-shadow: 1px 1px 1px #000;
+    padding:4px 6px 4px 6px;
+
+    /* mengatur sudut tumpul dari kotak hitam */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+    /* mengatur bayangan */
+    -webkit-box-shadow:inset 0 0 3px #000000;
+    -moz-box-shadow:inset 0 0 3px #000000;
+    box-shadow:inset 0 0 3px #000000;
+}
+#menu li ul {
+    list-style:none;
+    padding:0;
+    margin:0 0 12px 0;
+}
+#menu li ul li {
+    font-size:12px;
+    line-height:24px;
+    position:relative;
+    text-shadow: 1px 1px 1px #000000;
+    padding:0;
+    margin:0;
+    float:none;
+    text-align:left;
+    width:130px;
+}
+#menu li ul li:hover {
+    background:none;
+    border:none;
+    padding:0;
+    margin:0;
+}
+#menu li .greybox li {
+    background:#F4F4F4;
+    border:1px solid #bbbbbb;
+    margin:0px 0px 4px 0px;
+    padding:4px 6px 4px 6px;
+    width:116px;
+
+    /* mengatur ketumpulan sudut kotak abu-abu */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+#menu li .greybox li:hover {
+    background:#ffffff;
+    border:1px solid #aaaaaa;
+    padding:4px 6px 4px 6px;
+    margin:0px 0px 4px 0px;
+}
+</style>
+
+<!-- Menu Start -->
+<div id='iefix'><ul id='menu'>
+    
+    <li><a class='drop' href='http://wareztech-dejzy.blogspot.com/'>Beranda</a><!-- Awal Beranda -->
+    
+        <div class='dropdown_2columns'> <!-- Awal Kontainer 2 Kolom -->
+    
+            <div class='col_2'>
+                <h2>Selamat Datang Di Blog Belajar SEO Pemula ini</h2>
+            </div>
+    
+            <div class='col_2'>
+               <p> Hai perkenalkan, nama saya adalah Pram Khan dan saya mencoba membuat sebuah blog untuk mengenal segala sesuatu tentang SEO dan membaginya dengan teman-teman blogger pemula</p></div> 
+
+<div class='col_1'><img alt='my profile picture' src='http://3.bp.blogspot.com/-am9jXInjdis/T9FFNQaZ8CI/AAAAAAAAASs/iiH52j4eLdE/s100/best.jpg'/></div>              
+                <div class='col_1'><p>Info lengkap tentang saya bisa saudara baca di artikel <a href='#'>Tentang Saya</a></p></div>             
+         
+    
+            <div class='col_2'>
+                <h2>Permintaan Admin</h2>
+            </div>
+            
+         <div class='col_2'>
+                <p>Harap tidak melakukan copy paste. Jangan jadikan berbagi sebagai alasan, karena di dunia maya kita hanya perlu menyebarkan link untuk berbagi</p>
+            </div>
+          
+        </div><!-- Akhir Kontainer 2 Kolom -->
+    
+   </li> <!-- Akhir Beranda -->
+
+    <li><a class='drop' href='http://wareztech-dejzy.blogspot.com/'>Top Artikel</a><!-- Awal Top Artikel -->
+    
+        <div class='dropdown_5columns'><!-- Awal Kontainer 5 kolom -->
+        
+            <div class='col_5'>
+                <h2>Apa Itu SEO?</h2>
+            </div>
+            
+            <div class='col_1'>
+                <p class='black_box'>SEO adalah singkatan untuk search engine optimization yang mencakup segala upaya untuk membuat suatu halaman web muncul di mesin pencari</p>
+            </div>
+            
+            <div class='col_1'>
+                <p>SEO terbagi atas dua bagian utama yaitu ONPAGE dan OFFPAGE. Di mana kedua bagian ini sama pentingnya, hanya saja ONPAGE hanya dilakukan di awal, sedangkan OFFPAGE berjalan terus menerus</p>
+            </div>
+            
+            <div class='col_1'>
+                <p class='italic'>Onpage adalah upaya anda mengoptimalkan setiap halaman dengan mengatur title, meta, heading, dan struktur halaman, lebih lengkapnya <a href='http://wareztech-dejzy.blogspot.com/'>klik di sini</a></p>
+            </div>
+            
+            <div class='col_1'>
+                <p class='italic'>Offpage adalah upaya di belakang layar yang meliputi promosi di berbagai social networkd dan forum, serta mencari backlink... Info lengkapnya <a href='http://wareztech-dejzy.blogspot.com/'>klik di sini</a></p>
+            </div>
+            
+            <div class='col_1'>
+                <p class='strong'>Jadi anda harus memastikan optimasi ONPAGE dan OFFPAGE berjalan seimbang untuk mendapatkan hasil yang terbaik. Jangan mengutamakan salah satunya saja.</p>
+            </div>
+        
+            <div class='col_5'>
+                <h2>Here is some content with side images</h2>
+            </div>
+           
+            <div class='col_3'>
+            
+                <img alt='' class='img_left imgshadow' height='70' src='http://3.bp.blogspot.com/-LiJRg_8EH9w/UHZszszUzqI/AAAAAAAAAQI/T9H-d_qb08A/s70/Backlinks-checker.jpg' width='70'/>
+                <p>Setelah anda membuat blog yang rapi, mengisinya dan mengundang orang datang berkunjung.... apa lagi yang kurang? Ternyata blog anda butuh &quot;rekomendasi&quot; untuk diakui oleh Google. Indikasi bahwa blog anda direkomendasikan oleh banyak orang. <a href='http://wareztech-dejzy.blogspot.com/'>Read more...</a></p>
+        
+                <img alt='' class='img_left imgshadow' height='70' src='http://3.bp.blogspot.com/--qaykqfQknc/UG-64BalM2I/AAAAAAAAAK8/1GQ4jYRS48k/s70/Article-Writing.jpg' width='70'/>
+                <p>Setelah blog anda jadi, dan sudah &quot;dirias&quot; agar menarik bagi Google. Sekarang saatnya mengisi blog anda dengan artikel. Layaknya toko, jangan asal diisi. Isilah blog anda dengan hal-hal yang memang banyak dicari orang. <a href='http://wareztech-dejzy.blogspot.com/'>Read more...</a></p>
+            
+            </div>
+            
+            <div class='col_2'>
+            
+                <p class='black_box'>Sangat banyak blogger yang bermunculan dengan niat mengeruk uang dari dunia maya. Jika anda adalah salah satunya, maka saya sangat merekomendasikan membaca artikel ini sebagai pembuka. Artikel ini bukan dalam rangka belajar SEO, tetapi lebih kepada membentuk pola pikir yang benar tentang bisnis online sebelum anda memulai sesuatu yang tidak anda pahami. <a href='http://wareztech-dejzy.blogspot.com/' rel='follow' target='_blank'>Baca di sini</a></p>
+            
+            </div>
+        
+        </div><!-- Akhir Kontainer 5 Kolom -->
+    
+    </li><!-- Akhir Top Artikel -->
+
+    <li><a class='drop' href='#'>Kategori</a><!-- Awal Kategori -->
+    
+        <div class='dropdown_4columns'><!-- Awal Kontainer 4 Kolom -->
+        
+            <div class='col_4'>
+                <h2>Artikel Penting Berdasar Kategori</h2>
+            </div>
+            
+            <div class='col_1'>
+            
+                <h3>Traffic</h3>
+                <ul>
+                    <li><a href='http://wareztech-dejzy.blogspot.com/'>Alexa</a></li>
+                  <li><a href='/'>Pengunjung</a></li>
+                  <li><a href='/'>Histats</a></li>
+                  <li><a href='/'>Analytics</a></li>
+                  <li><a href='/'>FeedBurner</a></li>
+                </ul>   
+                 
+            </div>
+    
+            <div class='col_1'>
+            
+                <h3>Onpage</h3>
+                <ul>
+                  <li><a href='/'>Title</a></li>
+                  <li><a href='/'>Meta</a></li>
+                  <li><a href='/'>Heading</a></li>
+                  <li><a href='/'>Alt</a></li>
+                  <li><a href='/'>Internal Link</a></li>
+                </ul>   
+                 
+            </div>
+    
+            <div class='col_1'>
+            
+                <h3>Offpage</h3>
+                <ul>
+                  <li><a href='/'>Backlink</a></li>
+                  <li><a href='/'>Promosi</a></li>
+                  <li><a href='/'>LinkWheel</a></li>
+                  <li><a href='/'>Black Hat</a></li>
+                  <li><a href='/'>DMCA Notice</a></li>
+                </ul>   
+                 
+            </div>
+    
+            <div class='col_1'>
+            
+                <h3>Pelengkap</h3>
+                <ul>
+                  <li><a href='/'>Template</a></li>
+                  <li><a href='/'>Artikel Terkait</a></li>
+                  <li><a href='/'>Breadcrumbs</a></li>
+                  <li><a href='/'>Banner</a></li>
+                  <li><a href='/'>Lainnya...</a></li>
+                </ul>   
+                 
+            </div>
+            
+        </div><!-- Akhir Kontainer 4 kolom -->
+    
+    </li><!-- Akhir Kategori -->
+
+	<li class='menu_right'><a class='drop' href='#'>Layanan Jasa</a>
+    
+		<div class='dropdown_1column align_right'>
+        
+                <div class='col_1'>
+                
+                    <ul class='simple'>
+                      <li><a href='/'>Jasa SEO</a></li>
+                      <li><a href='/'>Jasa Traffic</a></li>
+                      <li><a href='/'>Jasa Backlink</a></li>
+                      <li><a href='/'>Daftar Backlink</a></li>
+                      <li><a href='/'>Jasa Review</a></li>
+                      <li><a href='/'>Jasa Artikel</a></li>
+                      <li><a href='/'>Jasa Panduan SEO</a></li>
+                    </ul>   
+                     
+                </div>
+                
+		</div>
+        
+	</li>
+
+    <li class='menu_right'><a class='drop' href='#'>Koleksi Template</a><!-- Awal koleksi template-->
+    
+        <div class='dropdown_3columns align_right'><!-- Awal kontainer 3 kolom -->
+            
+            <div class='col_3'>
+                <h2>TEMPLATE SEO FRIENDLY</h2>
+            </div>
+            
+            <div class='col_1'>
+    
+                <ul class='greybox'>
+                  <li><a href='/'>RP0113</a></li>
+                  <li><a href='/'>RP0213</a></li>
+                  <li><a href='/'>RP0313</a></li>
+                  <li><a href='/'>RP0413</a></li>
+                  <li><a href='/'>RP0513</a></li>
+                </ul>   
+    
+            </div>
+            
+            <div class='col_1'>
+    
+                <ul class='greybox'>
+                  <li><a href='/'>Slider Biru</a></li>
+                  <li><a href='/'>Slider Hijau</a></li>
+                  <li><a href='/'>Slider Kuning</a></li>
+                  <li><a href='/'>Slider Abu</a></li>
+                  <li><a href='/'>Slider Hitam</a></li>
+                </ul>   
+    
+            </div>
+            
+            <div class='col_1'>
+    
+                <ul class='greybox'>
+                  <li><a href='/'>BlackLine</a></li>
+                  <li><a href='/'>Masculine CB</a></li>
+                  <li><a href='/'>Feminine CB</a></li>
+                  <li><a href='/'>LightSimple</a></li>
+                  <li><a href='/'>More...</a></li>
+                </ul>   
+    
+            </div>
+            
+            <div class='col_3'>
+                <h2>Template Paling Laris</h2>
+            </div>
+            
+            <div class='col_3'>
+                <img alt='' class='img_left imgshadow' height='70' src='http://2.bp.blogspot.com/-n6A5IqfMeUs/UHJ3MlVNBOI/AAAAAAAAANg/S_iQuL8b-6s/s70/template+masculine.jpg' width='70'/>
+                <p>Desain template cardboard ini juga termasuk rancangan yang SEO friendly, hanya saja desainnya sudah fix dan tidak bisa diedit. Template ini menggunakan image background jadi penggantian warna juga tidak dimungkinkan.<a href='/'>Read more...</a></p>
+    
+                <img alt='' class='img_left imgshadow' height='70' src='http://3.bp.blogspot.com/-IXZvJF87kaw/T_z2dkf3CHI/AAAAAAAAAEM/9CNhAMge-sk/s70/1.png' width='70'/>
+                <p>Desain template yang satu ini dibuat buat rekan-rekan blogger yang tidak suka desain yang terikat dan ingin bereksperimen sendiri mencari gaya kesukaannya. Model yang satu ini bisa diedit menjadi begitu banyak desain tanpa batas. <a href='/'>Read more...</a></p>
+            </div>
+        
+        </div><!-- Akhir kontainer 3 kolom -->
+        
+    </li><!-- Akhir Koleksi Template -->
+
+</ul></div>
+<!-- Menu End -->
