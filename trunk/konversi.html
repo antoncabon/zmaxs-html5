@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Konversi Kode HTML</title>
+<style type="text/css">
+body{background-color:#f1f8fa;font:normal 11px Tahoma,Verdana,Arial,Sans-Serif;color:#333;padding:20px}
+p{margin-top:20px}
+code{color:#0252bf}
+#codes{border:3px solid #085BB9;width:98%;height:200px;display:block;background-color:#E6EFF9;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;font:normal 12px 'Courier New',Monospace;margin:10px 0;padding:5px}
+#codes:focus{background-color:#fff;color:#0C519Fborder:3px solid #0C519F}
+.button-group{text-align:left;margin:0 auto}
+button,button[disabled]:active{background-color:#074387;font:bold 11px Tahoma,Verdana,Arial,Sans-Serif;color:#fff;border:none;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;cursor:pointer;padding:5px 10px}
+button:hover{background-color:#055b98;color:#FFF}
+button:active{background-color:#055b98;color:#fff}
+button[disabled],button[disabled]:active{background-color:#246fe0;color:#000;cursor:default}
+#opt1,#opt2,#opt3,#opt4,#opt5{display:inline-block;vertical-align:middle;border:none;outline:none;margin:0 10px 0 0}
+</style>
+</head>
+<body>
+<textarea spellcheck="false" id="codes" placeholder="Tulis/Paste kode di sini lalu klik 'Konversi'"></textarea>
+<div class="button-group">
+<button id="cvrt" onclick="cdConvert();this.disabled = true;">Konversi</button>
+<button onclick="cdClear();">Bersihkan</button>
+</div>
+<p>
+<input checked="true" id="opt1" type="checkbox" />Konversi <code>&amp;</code> menjadi <code>&amp;amp;</code><br />
+<input id="opt2" type="checkbox" />Konversi <code>&#39;</code> menjadi <code>&amp;#039;</code><br />
+<input id="opt3" type="checkbox" />Konversi <code>&quot;</code> menjadi <code>&amp;quot;</code><br />
+<input checked="true" id="opt4" type="checkbox" />Konversi <code>&lt;</code> menjadi <code>&amp;lt;</code><br />
+<input checked="true" id="opt5" type="checkbox" />Konversi <code>&gt;</code> menjadi <code>&amp;gt;</code>
+</p>
+<script type="text/javascript">
+function cdClear() {
+    var wtarea = document.getElementById('codes');
+    wtarea.value = '';
+    wtarea.focus();
+    document.getElementById('cvrt').disabled = false;
+}
+function cdConvert() {
+    var ctarea = document.getElementById('codes'),
+        cv = ctarea.value,
+        opt1 = document.getElementById('opt1'),
+        opt2 = document.getElementById('opt2'),
+        opt3 = document.getElementById('opt3'),
+        opt4 = document.getElementById('opt4'),
+        opt5 = document.getElementById('opt5');
+    cv = cv.replace(/\t/g, "    ");
+    if (opt1.checked) cv = cv.replace(/&/g, "&amp;");
+    if (opt2.checked) cv = cv.replace(/'/g, "&#039;");
+    if (opt3.checked) cv = cv.replace(/"/g, "&quot;");
+    if (opt4.checked) cv = cv.replace(/</g, "&lt;");
+    if (opt5.checked) cv = cv.replace(/>/g, "&gt;");
+    if (cv.lastIndexOf('\n') != -1 || cv.length > 40) {
+        cv = cv.replace(/^/, "<i rel=\"pre\">");
+    } else {
+        cv = cv.replace(/^/, "<i rel=\"code\">");
+    }
+    cv = cv.replace(/$/, "</i>");
+    ctarea.value = cv;
+    ctarea.focus();
+    ctarea.select();
+};
+</script>
+</body>
+</html>
